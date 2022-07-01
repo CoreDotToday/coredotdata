@@ -3,29 +3,6 @@ import os
 from tqdm import tqdm
 
 
-def generate_directory(list_download_url):
-    """Make directory for download file
-
-    Parameters
-    ----------
-    list_download_url : list
-        [{"key": "", "url": ""}]
-    """
-    if type(list_download_url) == dict:
-        raise Exception(list_download_url['detail'])
-
-    # if list_download_url == []:
-    #     raise Exception("Empty dataset list")
-
-    for i in [i['key'] for i in list_download_url]:
-        dir_path = '/'.join(i.split("/")[:-1])
-        if dir_path:
-            os.makedirs(
-                dir_path,
-                exist_ok=True
-            )
-
-
 def get_path_from_uid(uid):
     """Generate prefix path from Content `uid`
 
@@ -68,7 +45,30 @@ def get_dataset_file_list(content_uid):
     return list_download_url
 
 
-def write_files(list_download_url):
+def generate_directory(list_download_url, target_directory=""):
+    """Make directory for download file
+
+    Parameters
+    ----------
+    list_download_url : list
+        [{"key": "", "url": ""}]
+    """
+    if type(list_download_url) == dict:
+        raise Exception(list_download_url['detail'])
+
+    # if list_download_url == []:
+    #     raise Exception("Empty dataset list")
+
+    for i in [i['key'] for i in list_download_url]:
+        dir_path = '/'.join(i.split("/")[:-1])
+        if dir_path:
+            os.makedirs(
+                target_directory+dir_path,
+                exist_ok=True
+            )
+
+
+def write_files(list_download_url, target_directory=""):
     """Download Files
 
     Parameters
@@ -78,11 +78,11 @@ def write_files(list_download_url):
     """
     for file in tqdm(list_download_url):
         result = requests.get(file['url'])
-        with open(file['key'], "wb") as f:
+        with open(target_directory+file['key'], "wb") as f:
             f.write(result.content)
 
 
-def download_dataset(uid):
+def download_dataset(uid, target_directory="./dataset/"):
     list_download_url = get_dataset_file_list(uid)
     generate_directory(list_download_url)
     write_files(list_download_url)
