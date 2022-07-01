@@ -11,6 +11,12 @@ def generate_directory(list_download_url):
     list_download_url : list
         [{"key": "", "url": ""}]
     """
+    if type(list_download_url) == dict:
+        raise Exception(list_download_url['detail'])
+
+    # if list_download_url == []:
+    #     raise Exception("Empty dataset list")
+
     for i in [i['key'] for i in list_download_url]:
         dir_path = '/'.join(i.split("/")[:-1])
         if dir_path:
@@ -52,6 +58,9 @@ def get_dataset_file_list(content_uid):
         dict information for download and file writing
     """
     path = get_path_from_uid(content_uid)
+    if type(path) == dict:
+        raise Exception("Invalid `uid`")
+
     key = path+"/upload"
     r = requests.post(
         "https://tool.core.today/lib/cdd/dataset", json={"key": key})
