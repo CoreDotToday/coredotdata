@@ -92,6 +92,8 @@ def download_dataset(uid, target_directory="./dataset/"):
     target_directory : str, optional
         Target directory for file download, by default "./dataset/"
     """
+    if target_directory[-1] != '/':
+        target_directory = target_directory + '/'
     list_download_url = get_dataset_file_list(uid)
     generate_directory(list_download_url, target_directory)
     write_files(list_download_url, target_directory)
