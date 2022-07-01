@@ -27,6 +27,15 @@ Core.Today Dataset Management Library
 * Documentation: https://coredotdata.readthedocs.io.
 
 
+Installation
+------------
+
+```
+pip install git+https://github.com/CoreDotToday/coredotdata
+```
+
+
+
 Features
 --------
 
