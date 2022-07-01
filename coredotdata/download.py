@@ -83,6 +83,15 @@ def write_files(list_download_url, target_directory=""):
 
 
 def download_dataset(uid, target_directory="./dataset/"):
+    """Download dataset file list from Core.Today
+
+    Parameters
+    ----------
+    uid : str
+        Content Unique Id
+    target_directory : str, optional
+        Target directory for file download, by default "./dataset/"
+    """
     list_download_url = get_dataset_file_list(uid)
-    generate_directory(list_download_url)
-    write_files(list_download_url)
+    generate_directory(list_download_url, target_directory)
+    write_files(list_download_url, target_directory)
