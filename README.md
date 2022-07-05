@@ -1,6 +1,11 @@
 # coredotdata
-
-코어닷투데이의 데이터셋을 원하는 곳에 다운로드할 수 있습니다.
+### 코어닷투데이의 데이터셋을 원하는 곳에 다운로드할 수 있습니다.
+![version](https://img.shields.io/badge/version-0.1.0-blue)
+[![GitHup issues](https://img.shields.io/github/issues/CoreDotToday/CoreDotFinance)](https://github.com/CoreDotToday/coredotdata/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/CoreDotToday/CoreDotFinance)](https://github.com/CoreDotToday/coredotdata/pulls)
+[![PyPI version](https://badge.fury.io/py/coredotdata.svg)](https://badge.fury.io/py/coredotdata)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+----------------------------
 
 -   Free software: Apache Software License 2.0
 
@@ -33,3 +38,13 @@ cdd.download_dataset("181I3nDWv0")
 import coredotdata as cdd
 cdd.download_dataset("181I3nDWv0", target_directory="./AAA")
 ```
+
+
+## Contributors
+<a href="https://github.com/coredottoday/coredotdata/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=coredottoday/coredotdata" />
+</a>
+
+
+## LICENSE
+`coredotdata` is licensed under the terms of the Apache License 2.0.
