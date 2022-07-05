@@ -7,6 +7,10 @@
 ## Installation
 
 ```
+pip install coredotdata
+```
+
+```
 pip install git+https://github.com/CoreDotToday/coredotdata
 ```
 
