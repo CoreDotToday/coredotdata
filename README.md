@@ -1,9 +1,8 @@
 # coredotdata
 ### 코어닷투데이의 데이터셋을 원하는 곳에 다운로드할 수 있습니다.
-![version](https://img.shields.io/badge/version-0.1.0-blue)
+[![PyPI version](https://badge.fury.io/py/coredotdata.svg)](https://badge.fury.io/py/coredotdata)
 [![GitHup issues](https://img.shields.io/github/issues/CoreDotToday/coredotdata)](https://github.com/CoreDotToday/coredotdata/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/CoreDotToday/coredotdata)](https://github.com/CoreDotToday/coredotdata/pulls)
-[![PyPI version](https://badge.fury.io/py/coredotdata.svg)](https://badge.fury.io/py/coredotdata)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ----------------------------
 
