@@ -3,24 +3,6 @@ import os
 from tqdm import tqdm
 
 
-def get_path_from_uid(uid):
-    """Generate prefix path from Content `uid`
-
-    Parameters
-    ----------
-    uid : str
-        content unique id
-
-    Returns
-    -------
-    str
-        prefix path for dataset download
-    """
-    r = requests.post("https://tool.core.today/lib/cdd/path",
-                      json={"uid": uid})
-    return r.json()
-
-
 def get_dataset_file_list(content_uid):
     """Get specific dataset file list using `content_uid`
 
@@ -34,13 +16,8 @@ def get_dataset_file_list(content_uid):
     list
         dict information for download and file writing
     """
-    path = get_path_from_uid(content_uid)
-    if type(path) == dict:
-        raise Exception("Invalid `uid`")
-
-    key = path+"/upload"
     r = requests.post(
-        "https://tool.core.today/lib/cdd/dataset", json={"key": key})
+        "https://tool.core.today/lib/cdd/dataset", json={"uid": content_uid})
     list_download_url = r.json()
     return list_download_url
 
