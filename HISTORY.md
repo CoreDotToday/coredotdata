@@ -7,7 +7,6 @@ History
 
 * Download Schema Modified.
 
-
 0.1.0 (2022-06-30)
 ------------------
 
