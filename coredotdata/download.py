@@ -33,10 +33,10 @@ def generate_directory(list_download_url, target_directory=""):
     if type(list_download_url) == dict:
         raise Exception(list_download_url['detail'])
 
-    # if list_download_url == []:
-    #     raise Exception("Empty dataset list")
+    if not os.path.exists(target_directory):
+        os.mkdir(target_directory)
 
-    for i in [i['key'] for i in list_download_url]:
+    for i in [i['filename'] for i in list_download_url]:
         dir_path = '/'.join(i.split("/")[:-1])
         if dir_path:
             os.makedirs(
@@ -55,7 +55,7 @@ def write_files(list_download_url, target_directory=""):
     """
     for file in tqdm(list_download_url):
         result = requests.get(file['url'])
-        with open(target_directory+file['key'], "wb") as f:
+        with open(target_directory+file['filename'], "wb") as f:
             f.write(result.content)
 
 
