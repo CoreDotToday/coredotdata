@@ -24,20 +24,36 @@ pip uninstall coredotdata -y
 
 ## Features
 
--   데이터셋 uid를 이용하여 다운로드 하기 (data 폴더에 저장됩니다)
+- 데이터셋 uid를 이용하여 다운로드 하기 (data 폴더에 저장됩니다)
 
 ```python
 import coredotdata as cdd
 cdd.download_dataset("181I3nDWv0")
 ```
 
--   특정 디렉토리 이름을 지정하여 다운받을 수 있습니다 `target_directory`
+- 특정 디렉토리 이름을 지정하여 다운받을 수 있습니다 `target_directory`
 
 ```python
 import coredotdata as cdd
 cdd.download_dataset("181I3nDWv0", target_directory="./AAA")
 ```
 
+- 콘텐츠에 담긴 파일 목록을 조회할 수 있습니다
+
+```python
+import coredotdata as cdd
+cdd.get_dataset_file_list("15Dif81I")
+```
+
+
+- 원하는 파일만 선택하여 다운로드할 수 있습니다 `target_file_list`
+
+```python
+import coredotdata as cdd
+cdd.download_dataset("15Dif81I", "./data", ['AgeDataset-V1.csv.zip'])
+# cdd.download_dataset("15Dif81I", target_file_list=['AgeDataset-V1.csv.zip'])
+# cdd.download_dataset("15Dif81I", target_directory="./data", target_file_list=['AgeDataset-V1.csv.zip'])
+```
 
 ## Contributors
 <a href="https://github.com/coredottoday/coredotdata/graphs/contributors">
