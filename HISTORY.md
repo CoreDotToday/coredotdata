@@ -2,6 +2,11 @@
 History
 =======
 
+0.3.0 (2022-07-15)
+------------------
+
+* Add `target_file_list` for selected file download
+
 
 0.2.1 (2022-07-11)
 ------------------

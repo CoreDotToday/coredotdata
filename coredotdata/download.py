@@ -3,7 +3,7 @@ import os
 from tqdm import tqdm
 
 
-def get_dataset_file_list(content_uid):
+def get_dataset_file_url(content_uid, target_filenames=None):
     """Get specific dataset file list using `content_uid`
 
     Parameters
@@ -16,10 +16,24 @@ def get_dataset_file_list(content_uid):
     list
         dict information for download and file writing
     """
+    data = {"uid": content_uid}
+    if target_filenames:
+        if type(target_filenames) == str:
+            data['target_filenames'] = list(target_filenames)
+        else:
+            data['target_filenames'] = target_filenames
+
     r = requests.post(
-        "https://tool.core.today/lib/cdd/dataset", json={"uid": content_uid})
+        "https://tool.core.today/lib/cdd/dataset", json=data)
     list_download_url = r.json()
     return list_download_url
+
+
+def get_dataset_file_list(content_uid):
+    r = requests.post(
+        "https://tool.core.today/lib/cdd/dataset", json={"uid": content_uid, "get_filename": True})
+    list_files = r.json()
+    return list_files
 
 
 def generate_directory(list_download_url, target_directory=""):
@@ -59,7 +73,7 @@ def write_files(list_download_url, target_directory=""):
             f.write(result.content)
 
 
-def download_dataset(uid, target_directory="./dataset/"):
+def download_dataset(uid, target_directory="./dataset/", target_file_list=[]):
     """Download dataset file list from Core.Today
 
     Parameters
@@ -68,9 +82,18 @@ def download_dataset(uid, target_directory="./dataset/"):
         Content Unique Id
     target_directory : str, optional
         Target directory for file download, by default "./dataset/"
+    target_file_list : list, str, optional
+        Target download file list, by default []
     """
     if target_directory[-1] != '/':
         target_directory = target_directory + '/'
-    list_download_url = get_dataset_file_list(uid)
+    if target_file_list:
+        if target_file_list == str:
+            list_download_url = get_dataset_file_url(uid, [target_file_list])
+        else:
+            list_download_url = get_dataset_file_url(uid, target_file_list)
+    else:
+        list_download_url = get_dataset_file_url(uid)
+
     generate_directory(list_download_url, target_directory)
     write_files(list_download_url, target_directory)
