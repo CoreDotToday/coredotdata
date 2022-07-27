@@ -97,3 +97,9 @@ def download_dataset(uid, target_directory="./dataset/", target_file_list=[]):
 
     generate_directory(list_download_url, target_directory)
     write_files(list_download_url, target_directory)
+
+
+def listdir(target_directory="./dataset/"):
+    # if os.path.exists(target_directory):
+    return os.listdir(target_directory)
+
