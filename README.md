@@ -55,6 +55,15 @@ cdd.download_dataset("15Dif81I", "./data", ['AgeDataset-V1.csv.zip'])
 # cdd.download_dataset("15Dif81I", target_directory="./data", target_file_list=['AgeDataset-V1.csv.zip'])
 ```
 
+
+- 다운로드 폴더의 파일 목록을 조회합니다
+
+```python
+cdd.listdir()  # "./dataset" 폴더 안의 파일 목록을 반환합니다
+# cdd.listdir(target_directory="./data")  # 목록 조회할 폴더를 지정합니다
+# cdd.listdir(show_size=1)  # 파일 크기도 같이 반환합니다
+```
+
 ## Contributors
 <a href="https://github.com/coredottoday/coredotdata/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=coredottoday/coredotdata" />
