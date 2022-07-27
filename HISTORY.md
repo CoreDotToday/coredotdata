@@ -2,6 +2,11 @@
 History
 =======
 
+0.4.0 (2022-07-27)
+------------------
+
+* Add `listdir` for file list of target directory
+
 0.3.0 (2022-07-15)
 ------------------
 
