@@ -1,6 +1,7 @@
 import requests
 import os
 from tqdm import tqdm
+from pathlib import Path
 
 
 def get_dataset_file_url(content_uid, target_filenames=None):
@@ -99,7 +100,10 @@ def download_dataset(uid, target_directory="./dataset/", target_file_list=[]):
     write_files(list_download_url, target_directory)
 
 
-def listdir(target_directory="./dataset/"):
+def listdir(target_directory="./dataset/", show_size=0):
     # if os.path.exists(target_directory):
+    if show_size:
+        return [(f.name, f.stat().st_size) for f in Path(target_directory).glob('**/*') if f.is_file()]
+
     return os.listdir(target_directory)
 
