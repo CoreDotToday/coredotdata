@@ -72,3 +72,8 @@ cdd.listdir()  # "./dataset" 폴더 안의 파일 목록을 반환합니다
 
 ## LICENSE
 `coredotdata` is licensed under the terms of the Apache License 2.0.
+
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=CoreDotToday/coredotdata&type=Timeline)](https://star-history.com/#CoreDotToday/coredotdata&Timeline)
